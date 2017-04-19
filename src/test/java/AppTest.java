@@ -17,7 +17,8 @@ public class AppTest
     public void addUsuario()
     {
         //Introducimos un usuario y miramos que en la lista haya algo
-        Usuario u = new Usuario(4,"Aleix", "fcbcanovas");
+        Usuario u = new Usuario();
+        u.setId(4); u.setNombre("Aleix"); u.setPassword("FCBcanovas");
         controladorTest.addUsuario(u);
         assertTrue(controladorTest.getListaUsuariosByName().size() == 4);
     }
@@ -25,7 +26,8 @@ public class AppTest
     @org.junit.Test
     public void addObjetoToUsuario()
     {
-        Objeto o = new Objeto(1,"Poción", "Restaura vida al tomarla");
+        Objeto o = new Objeto();
+        o.setId(1); o.setNombre("Pocion"); o.setDescripcion("Restaura puntos de salud");
         controladorTest.giveObjetoToUsuario(2,o);
         assertTrue(controladorTest.getObjetosFromUsuario(2).size() == 6);
     }
